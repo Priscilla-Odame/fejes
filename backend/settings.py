@@ -14,6 +14,7 @@ from pathlib import Path
 import environ
 from dotenv import load_dotenv
 import django_heroku
+import os
 
 load_dotenv()
 env = environ.Env()
@@ -62,7 +63,7 @@ ROOT_URLCONF = 'backend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS':  [BASE_DIR, os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
